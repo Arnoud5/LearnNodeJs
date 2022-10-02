@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Navbar Start*/
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 1px 1px 10px rgb(240, 240, 240);
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 20px 0px;
+}
+a{
+    text-decoration: none;
+}
+
+/* Navbar End*/
+
+/* 404 start */
+
+.parent-404{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 246, 227, 0.801);
+}
+
+.parent-404 h1{
+    color: rgb(61, 61, 61);
+}
+
+/* 404 end */
+
+/* about start */
+.parent-about{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 246, 227, 0.801);
+}
+
+.parent-about h1{
+    color: rgb(61, 61, 61);
+}
+/* about end */
