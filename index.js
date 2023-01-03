@@ -1,35 +1,33 @@
-const http = require("http");
-const fs = require("fs");
-const port = 8080;
+const express = require('express')
+const app = express()
+const path = require('path')
+const port = 3000
 
-const server = http.createServer((req, res) => {
-    if (req.url == "/") {
-        fs.readFile("index.html", (err, data) => {
-            res.writeHead(200, { "Content-Type": "text/html", "Content-Length": data.length });
-            res.write(data);
-            res.end();
-        });
-    } else if (req.url == "/about.html") {
-        fs.readFile("about.html", (err, data) => {
-            res.writeHead(200, { "Content-Type": "text/html", "Content-Length": data.length });
-            res.write(data);
-            res.end();
-        });
-    } else if (req.url == "/contact-me.html") {
-        fs.readFile("contact-me.html", (err, data) => {
-            res.writeHead(200, { "Content-Type": "text/html", "Content-Length": data.length });
-            res.write(data);
-            res.end();
-        });
-    } else {
-        fs.readFile("404.html", (err, data) => {
-            res.writeHead(200, { "Content-Type": "text/html", "Content-Length": data.length });
-            res.write(data);
-            res.end();
-        });
-    }
-});
 
-server.listen(port, () => {
-    console.log(`Your server run at ${port}`)
-});
+app.get('/', (req, res) => {
+    res.sendStatus = 200;
+    res.sendFile(path.join(__dirname, './views/index.html' ))
+})
+
+app.get('/style.css', (req, res) => {
+    res.sendStatus = 200;
+    res.sendFile(path.join(__dirname, './views/style.css' ))
+})
+
+app.get('/contact', (req, res) => {
+    res.sendStatus = 200;
+    res.sendFile(path.join(__dirname, './views/contactme.html' ))
+})
+
+
+app.get('/about', (req, res) => {
+    res.sendStatus = 200;
+    res.sendFile(path.join(__dirname, './views/about.html' ))
+})
+
+app.get('*', (req, res) => {
+    res.sendStatus = 200;
+    res.sendFile(path.join(__dirname, './views/404.html' ))
+})
+
+app.listen(port)
